@@ -1,0 +1,15 @@
+---
+- name: Create target directory
+  file:
+    path: "{{ wesher_env_path }}"
+    state: directory
+    mode: '0700'
+
+- name: Configure wesher
+  template:
+    src: wesher.env.j2
+    dest: "{{ wesher_env_path }}/wesher"
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Restart wesher

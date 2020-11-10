@@ -1,0 +1,16 @@
+---
+- name: Install systemd service unit
+  template:
+    src: wesher.service.j2
+    dest: /lib/systemd/system/wesher.service
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Restart wesher
+  when: wesher_service_install | bool
+
+- name: Enable wesher service
+  systemd:
+    enabled: "{{ wesher_service_enabled }}"
+    daemon_reload: yes
+    name: wesher

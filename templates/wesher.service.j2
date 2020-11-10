@@ -1,0 +1,14 @@
+{{ ansible_managed | comment }}
+
+[Unit]
+Description=wesher - wireguard mesh builder
+After=network-online.target
+
+[Service]
+EnvironmentFile=-{{ wesher_env_path }}/wesher
+ExecStart={{ wesher_binary_path }}/wesher
+Restart=on-failure
+Type=simple
+
+[Install]
+WantedBy=multi-user.target

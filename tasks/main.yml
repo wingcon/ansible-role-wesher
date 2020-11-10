@@ -1,0 +1,9 @@
+---
+- name: Download wesher
+  import_tasks: download.yml
+
+- name: Configure wesher
+  import_tasks: configure.yml
+
+- name: Handle systemd service wesher
+  import_tasks: service.yml

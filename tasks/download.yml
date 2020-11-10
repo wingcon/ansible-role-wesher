@@ -1,0 +1,13 @@
+---
+- name: Create target directory
+  file:
+    path: "{{ wesher_binary_path }}"
+    state: directory
+    mode: '0700'
+
+- name: Download latest wesher
+  get_url:
+    url: "{{ wesher_download_url }}"
+    dest: "{{ wesher_binary_path }}/wesher"
+    mode: '0500'
+  when: wesher_download | bool
