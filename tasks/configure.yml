@@ -11,5 +11,5 @@
     dest: "{{ wesher_env_path }}/wesher"
     owner: root
     group: root
-    mode: '0644'
+    mode: '0600'
   notify: Restart wesher
