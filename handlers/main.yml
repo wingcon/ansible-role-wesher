@@ -1,5 +1,5 @@
 ---
 - name: Restart wesher
   systemd:
-    state: "{{ wesher_service_restarted | ternary('restarted', 'stopped') }}"
+    state: "{{ wesher_service_started | ternary('restarted', 'stopped') }}"
     name: wesher
