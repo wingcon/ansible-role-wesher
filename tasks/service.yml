@@ -13,5 +13,5 @@
   systemd:
     enabled: "{{ wesher_service_enabled }}"
     state: "{{ wesher_service_started | ternary('started', 'stopped') }}"
-    daemon_reload: yes
+    daemon_reload: true
     name: wesher
